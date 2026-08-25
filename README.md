@@ -2,7 +2,7 @@
 
 A self-practice data analytics project: cleaning and analyzing a ~200-row generated cafe sales dataset across **SQL, Python, Power BI, and Excel**.
 
-## 📁 Files in this repo
+##  Files in this repo
 
 | File | Description |
 |---|---|
@@ -11,7 +11,7 @@ A self-practice data analytics project: cleaning and analyzing a ~200-row genera
 | `cafe.ipynb` | Python (pandas) notebook — cleaning, EDA, and aggregation |
 | `cafe_analysis.pbix` | Power BI report with dashboard visuals |
 
-## 🧹 Data Cleaning
+##  Data Cleaning
 
 Performed consistently across SQL, Python, and Excel:
 
@@ -22,7 +22,7 @@ Performed consistently across SQL, Python, and Excel:
 - Standardized `Category` casing (title case) and trimmed whitespace from `Item`
 - Identified and removed exact duplicate rows
 
-## 📊 Exploratory Data Analysis (Python)
+##  Exploratory Data Analysis (Python)
 
 Added on top of cleaning, in `cafe.ipynb`:
 
@@ -32,7 +32,7 @@ Added on top of cleaning, in `cafe.ipynb`:
 - Outlier check on `TotalPrice` using IQR method + boxplot
 - Revenue-by-category bar chart and orders-over-time line chart
 
-## 📈 Aggregate Analysis (SQL & Python)
+##  Aggregate Analysis (SQL & Python)
 
 - Revenue by Category
 - Revenue by City
@@ -42,7 +42,7 @@ Added on top of cleaning, in `cafe.ipynb`:
 - Top 5 Customers by total spend
 - Average Rating by Item
 
-## 📊 Dashboard (Power BI / Excel)
+##  Dashboard (Power BI / Excel)
 
 Key metrics surfaced on the dashboard:
 
@@ -53,13 +53,13 @@ Key metrics surfaced on the dashboard:
 
 Includes interactive slicers for filtering by category, city, and payment method.
 
-## 🛠 Tools Used
+##  Tools Used
 
 - SQL (data cleaning, aggregation)
 - Python / pandas (cleaning, EDA, visualization)
 - Microsoft Excel (PivotTables, slicers)
 - Power BI (dashboard visuals, DAX measures)
 
-## 🎯 Purpose
+##  Purpose
 
 Built as hands-on practice to strengthen data cleaning, EDA, SQL querying, and dashboard-building skills using a single consistent dataset across multiple tools.
