@@ -51,6 +51,7 @@ Cleaning, EDA, and aggregation using pandas.
 ---
 
 # Excel Notes
+![Uploading Screenshot 2026-08-25 134944.png…]()
 
 ## 📗 Excel — Dashboard
 PivotTables and slicers built on the cleaned dataset for an interactive summary view.
@@ -68,6 +69,7 @@ PivotTables and slicers built on the cleaned dataset for an interactive summary 
 ---
 
 # Power BI Notes
+<img width="631" height="356" alt="Screenshot 2026-08-25 143258" src="https://github.com/user-attachments/assets/272ea255-4705-4382-9764-dc581887623a" />
 
 ## 📘 Power BI — `cafe_analysis.pbix`
 Dashboard report with card visuals and slicer-based filtering.
