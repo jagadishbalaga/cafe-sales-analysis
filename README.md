@@ -69,7 +69,8 @@ PivotTables and slicers built on the cleaned dataset for an interactive summary 
 ---
 
 # Power BI Notes
-<img width="631" height="356" alt="Screenshot 2026-08-25 143258" src="https://github.com/user-attachments/assets/272ea255-4705-4382-9764-dc581887623a" />
+![Uploading Screenshot 2026-08-25 143258.png…]()
+
 
 ## 📘 Power BI — `cafe_analysis.pbix`
 Dashboard report with card visuals and slicer-based filtering.
