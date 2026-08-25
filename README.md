@@ -60,6 +60,4 @@ Includes interactive slicers for filtering by category, city, and payment method
 - Microsoft Excel (PivotTables, slicers)
 - Power BI (dashboard visuals, DAX measures)
 
-##  Purpose
 
-Built as hands-on practice to strengthen data cleaning, EDA, SQL querying, and dashboard-building skills using a single consistent dataset across multiple tools.
