@@ -1,63 +1,78 @@
-# Cafe Sales Analysis
+SQL — cafe_project.sql
 
-A self-practice data analytics project: cleaning and analyzing a ~200-row generated cafe sales dataset across **SQL, Python, Power BI, and Excel**.
+Data loading, cleaning, and aggregate analysis using SQL.
 
-##  Files in this repo
+Data Loading
+Loaded the dataset into a table cafe_sales_practice
+ Data Cleaning
+Counted nulls per column (e.g. UnitPrice)
+Removed exact duplicates using ROW_NUMBER() + PARTITION BY across all columns, keeping only rn = 1
+Standardized Category to uppercase and trimmed whitespace; trimmed Item
+Recalculated missing TotalPrice as Quantity * UnitPrice where both existed, using an UPDATE statement
+Aggregate Queries
+Revenue by Category
+Revenue by City (including a version filtering out NULL TotalPrice/City)
+Revenue by Payment Method
+Revenue by Item
+Top 5 Customers by total revenue
+Average Rating by Item
 
-| File | Description |
-|---|---|
-| `cafe_sales_dataset.xlsx` | Raw/working dataset — cafe transactions (Order ID, Date, Customer, Item, Category, Quantity, Unit Price, Total Price, Payment Method, City, Rating) |
-| `cafe_project.sql` | SQL scripts for data cleaning and aggregate analysis |
-| `cafe.ipynb` | Python (pandas) notebook — cleaning, EDA, and aggregation |
-| `cafe_analysis.pbix` | Power BI report with dashboard visuals |
+Excel — Dashboard
+<img width="770" height="382" alt="Screenshot 2026-08-25 134944" src="https://github.com/user-attachments/assets/98ff401a-4c5d-4edb-bc0f-9b167b60076f" />
 
-##  Data Cleaning
+PivotTables and slicers built on the cleaned dataset for an interactive summary view.
 
-Performed consistently across SQL, Python, and Excel:
+Setup
+Loaded the cleaned dataset into a table and built PivotTables for the summary cards (Total Revenue, Total Orders, Avg Order Value, Total Items Sold)
+Interactivity
+Added slicers to filter by Category, City, and Payment Method
+Fixed slicer connectivity issue via right-click slicer → Report Connections, ensuring every relevant PivotTable was checked so the cards actually respond to filtering
+Output
+Dashboard view combining PivotTables + slicers + summary cards for a quick interactive view of the data
 
-- Checked for and counted null values in every column
-- Dropped rows with missing `CustomerName`; filled missing `Quantity` (default 1), `Rating` (median), `PaymentMethod` (`"Unknown"`), `City` (mode)
-- Filled missing `UnitPrice` using the average price per `Item`
-- Recalculated missing `TotalPrice` as `Quantity * UnitPrice` where possible
-- Standardized `Category` casing (title case) and trimmed whitespace from `Item`
-- Identified and removed exact duplicate rows
+Power BI — cafe_analysis.pbix
+<img width="631" height="356" alt="Screenshot 2026-08-25 143258" src="https://github.com/user-attachments/assets/089c1b38-b0c5-4fd8-8040-c6d94446fa65" />
 
-##  Exploratory Data Analysis (Python)
+Dashboard report with card visuals and slicer-based filtering.
 
-Added on top of cleaning, in `cafe.ipynb`:
+Setup
+Imported the cleaned dataset and built card visuals for:
+Total Revenue: 55,862
+Total Orders: 205
+Average Order Value: 272.4976
+Total Items Sold: 362
+Added a slicer for filtering the dashboard
+🔧 Troubleshooting
+When the slicer wasn't filtering the cards, checked (in order):
+Slicer's field source
+Model view relationships (solid vs dashed lines)
+Edit interactions settings per visual
+Whether cards used proper DAX measures vs. disconnected tables
+Duplicate data sources in the model
+Output
+Interactive report page where selecting a slicer value updates all four summary cards
 
-- `df.info()` / `df.describe()` — data types and summary statistics
-- Value counts for `Category`, `PaymentMethod`, `City`
-- Distribution histograms for `Quantity`, `UnitPrice`, `TotalPrice`, `Rating`
-- Outlier check on `TotalPrice` using IQR method + boxplot
-- Revenue-by-category bar chart and orders-over-time line chart
+Python — cafe.ipynb
 
-##  Aggregate Analysis (SQL & Python)
+Cleaning, EDA, and aggregation using pandas.
 
-- Revenue by Category
-- Revenue by City
-- Revenue by Payment Method
-- Revenue by Item
-- Revenue by Month
-- Top 5 Customers by total spend
-- Average Rating by Item
+Data Cleaning
+Counted nulls per column (df.isnull().sum())
+Dropped rows with missing CustomerName
+Filled missing Quantity (default 1), Rating (median), PaymentMethod ("Unknown"), City (mode)
+Filled missing UnitPrice using the average price per Item
+Recalculated missing TotalPrice as Quantity * UnitPrice
+Standardized Category to title case; trimmed whitespace from Item
+Dropped exact duplicate rows (df.drop_duplicates())
 
-##  Dashboard (Power BI / Excel)
+Exploratory Data Analysis (EDA)
+df.info() / df.describe() — data types and summary statistics
+Value counts for Category, PaymentMethod, City
+Distribution histograms for Quantity, UnitPrice, TotalPrice, Rating
+Outlier check on TotalPrice using IQR method + boxplot
+Revenue-by-category bar chart and orders-over-time line chart
+Aggregate Analysis
 
-Key metrics surfaced on the dashboard:
-
-- **Total Revenue:** 55,862
-- **Total Orders:** 205
-- **Average Order Value:** 272.50
-- **Total Items Sold:** 362
-
-Includes interactive slicers for filtering by category, city, and payment method.
-
-##  Tools Used
-
-- SQL (data cleaning, aggregation)
-- Python / pandas (cleaning, EDA, visualization)
-- Microsoft Excel (PivotTables, slicers)
-- Power BI (dashboard visuals, DAX measures)
-
-
+Revenue by Category (groupby)
+Revenue by City (groupby)
+Revenue by Month (groupby on OrderDate.dt.month)
